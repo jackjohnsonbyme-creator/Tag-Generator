@@ -1,228 +1,203 @@
 <!DOCTYPE html>
-<html lang="uz">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>YouTube & TikTok Tag Generator | Bepul Hashtaglar</title>
-    
-    <!-- ⬇️ REKLAMA SCRIPT KO'DI (Monetag / Adsterra Popunder kodi shu yerga tushadi) ⬇️ -->
-    <!-- Misol uchun script: <script type='text/javascript' src='//your-ad-network.com/code.js'></script> -->
-    <!-- ⬆️ REKLAMA SCRIPT KO'DI TUGADI ⬆️ -->
-
-    <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        body {
-            background-color: #0f172a;
-            color: #f8fafc;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            min-height: 100vh;
-            padding: 20px;
-        }
-        .container {
-            max-width: 600px;
-            width: 100%;
-            background: #1e293b;
-            padding: 25px;
-            border-radius: 16px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
-            margin-top: 20px;
-        }
-        h1 {
-            font-size: 22px;
-            text-align: center;
-            margin-bottom: 8px;
-            color: #38bdf8;
-        }
-        p.subtitle {
-            font-size: 14px;
-            text-align: center;
-            color: #94a3b8;
-            margin-bottom: 20px;
-        }
-        .input-group {
-            display: flex;
-            gap: 10px;
-            margin-bottom: 20px;
-        }
-        input {
-            flex: 1;
-            padding: 12px 16px;
-            border-radius: 8px;
-            border: 1px solid #334155;
-            background: #0f172a;
-            color: #fff;
-            outline: none;
-            font-size: 15px;
-        }
-        input:focus {
-            border-color: #38bdf8;
-        }
-        button {
-            padding: 12px 20px;
-            background: #2563eb;
-            color: white;
-            border: none;
-            border-radius: 8px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: 0.2s;
-        }
-        button:hover {
-            background: #1d4ed8;
-        }
-        .tags-box {
-            background: #0f172a;
-            border: 1px solid #334155;
-            border-radius: 8px;
-            padding: 15px;
-            min-height: 100px;
-            margin-bottom: 15px;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-        }
-        .tag {
-            background: #334155;
-            color: #38bdf8;
-            padding: 6px 12px;
-            border-radius: 20px;
-            font-size: 13px;
-            font-weight: 500;
-        }
-        .actions {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .copy-btn {
-            background: #10b981;
-            width: 100%;
-        }
-        .copy-btn:hover {
-            background: #059669;
-        }
-        /* Boshqa saytlar tarmog'i menyusi */
-        .network-links {
-            margin-top: 30px;
-            width: 100%;
-            max-width: 600px;
-            text-align: center;
-        }
-        .network-links h3 {
-            font-size: 14px;
-            color: #94a3b8;
-            margin-bottom: 10px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-        .links-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
-            gap: 10px;
-        }
-        .network-card {
-            background: #1e293b;
-            padding: 10px;
-            border-radius: 8px;
-            color: #38bdf8;
-            text-decoration: none;
-            font-size: 12px;
-            border: 1px solid #334155;
-            transition: 0.2s;
-        }
-        .network-card:hover {
-            border-color: #38bdf8;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>YouTube & TikTok SEO Tag Generator</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    body {
+      background-color: #0f172a;
+      color: #f8fafc;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+    .container {
+      max-width: 600px;
+      width: 100%;
+      background: #1e293b;
+      padding: 25px;
+      border-radius: 16px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+      margin-top: 20px;
+    }
+    h1 {
+      font-size: 1.5rem;
+      text-align: center;
+      color: #38bdf8;
+      margin-bottom: 8px;
+    }
+    p.subtitle {
+      text-align: center;
+      color: #94a3b8;
+      font-size: 0.9rem;
+      margin-bottom: 20px;
+    }
+    .input-group {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+    input[type="text"] {
+      flex: 1;
+      padding: 12px 16px;
+      border-radius: 8px;
+      border: 1px solid #334155;
+      background: #0f172a;
+      color: #fff;
+      font-size: 0.95rem;
+      outline: none;
+    }
+    input[type="text"]:focus {
+      border-color: #38bdf8;
+    }
+    button.btn-generate {
+      padding: 12px 20px;
+      background: #2563eb;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    button.btn-generate:hover {
+      background: #1d4ed8;
+    }
+    .output-box {
+      background: #0f172a;
+      border: 1px solid #334155;
+      border-radius: 8px;
+      padding: 15px;
+      min-height: 120px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-content: flex-start;
+      margin-bottom: 15px;
+    }
+    .tag {
+      background: #1e293b;
+      color: #38bdf8;
+      border: 1px solid #334155;
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+    }
+    button.btn-copy {
+      width: 100%;
+      padding: 12px;
+      background: #10b981;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    button.btn-copy:hover {
+      background: #059669;
+    }
+    .tools-grid {
+      margin-top: 30px;
+      width: 100%;
+      max-width: 600px;
+    }
+    .tools-grid h3 {
+      text-align: center;
+      font-size: 0.85rem;
+      color: #94a3b8;
+      margin-bottom: 15px;
+      letter-spacing: 1px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+      gap: 10px;
+    }
+    .tool-card {
+      background: #1e293b;
+      border: 1px solid #334155;
+      padding: 12px;
+      text-align: center;
+      border-radius: 8px;
+      font-size: 0.8rem;
+      color: #cbd5e1;
+      text-decoration: none;
+    }
+  </style>
 </head>
 <body>
 
-    <div class="container">
-        <h1>SEO Tag & Hashtag Generator</h1>
-        <p class="subtitle">YouTube va TikTok uchun eng ommabop teglarni yarating</p>
-        
-        <div class="input-group">
-            <input type="text" id="keywordInput" placeholder="Mavzu yoki kalit so'zni kiriting...">
-            <button onclick="generateTags()">Yaratish</button>
-        </div>
-
-        <div class="tags-box" id="tagsBox">
-            <span style="color: #64748b; font-size: 13px;">Teglar shu yerda paydo bo'ladi...</span>
-        </div>
-
-        <div class="actions">
-            <button class="copy-btn" id="copyBtn" onclick="copyTags()" style="display: none;">Nusxalash (Copy)</button>
-        </div>
+  <div class="container">
+    <h1>SEO Tag & Hashtag Generator</h1>
+    <p class="subtitle">Generate high-ranking tags for YouTube and TikTok</p>
+    
+    <div class="input-group">
+      <input type="text" id="keyword" placeholder="Enter topic or keyword...">
+      <button class="btn-generate" onclick="generateTags()">Generate</button>
     </div>
 
-    <!-- AYORONA STRATEGIYA: Saytlar tarmog'i (Boshqa saytlaringizga havola) -->
-    <div class="network-links">
-        <h3>Bizning Boshqa Bepul Instrumentlar</h3>
-        <div class="links-grid">
-            <a href="#" class="network-card">Password Generator</a>
-            <a href="#" class="network-card">Text Counter</a>
-            <a href="#" class="network-card">QR Code Maker</a>
-            <a href="#" class="network-card">AI Prompt Helper</a>
-        </div>
+    <div class="output-box" id="tagsBox">
+      <span style="color: #64748b; font-size: 0.85rem;">Generated tags will appear here...</span>
     </div>
 
-    <script>
-        let currentTags = [];
+    <button class="btn-copy" onclick="copyTags()">Copy All Tags</button>
+  </div>
 
-        function generateTags() {
-            const input = document.getElementById('keywordInput').value.trim();
-            if (!input) return;
+  <div class="tools-grid">
+    <h3>MORE FREE TOOLS</h3>
+    <div class="grid">
+      <a href="#" class="tool-card">Password Generator</a>
+      <a href="#" class="tool-card">Text Counter</a>
+      <a href="#" class="tool-card">QR Code Maker</a>
+      <a href="#" class="tool-card">AI Prompt Helper</a>
+    </div>
+  </div>
 
-            // Teglar bazasi (Aktivatsiya)
-            const baseTags = [
-                input,
-                input + " 2026",
-                "best " + input,
-                "how to " + input,
-                input + " tutorial",
-                input + " review",
-                input + " viral",
-                input + " shorts",
-                input + " tiktok",
-                "top " + input,
-                input + " guide",
-                input + " new",
-                "#shorts",
-                "#" + input.replace(/\s+/g, '')
-            ];
+  <script>
+    function generateTags() {
+      const input = document.getElementById('keyword').value.trim();
+      const tagsBox = document.getElementById('tagsBox');
+      
+      if (!input) {
+        alert('Please enter a keyword!');
+        return;
+      }
 
-            currentTags = baseTags;
-            const tagsBox = document.getElementById('tagsBox');
-            tagsBox.innerHTML = '';
+      const suffixes = ['', ' 2026', ' tutorial', ' review', ' viral', ' shorts', ' tiktok', ' top', ' guide', ' new'];
+      let tagsHTML = `<span class="tag">#${input.replace(/\s+/g, '')}</span>`;
+      
+      suffixes.forEach(suf => {
+        const cleanTag = (input + suf).replace(/\s+/g, '');
+        tagsHTML += `<span class="tag">#${cleanTag}</span>`;
+      });
+      
+      tagsHTML += `<span class="tag">#shorts</span><span class="tag">#${input.split(' ')[0]}</span>`;
+      tagsBox.innerHTML = tagsHTML;
+    }
 
-            baseTags.forEach(tag => {
-                const tagElement = document.createElement('span');
-                tagElement.className = 'tag';
-                tagElement.textContent = tag.startsWith('#') ? tag : '#' + tag;
-                tagsBox.appendChild(tagElement);
-            });
+    function copyTags() {
+      const tagsBox = document.getElementById('tagsBox');
+      const tags = Array.from(tagsBox.querySelectorAll('.tag')).map(t => t.innerText).join(' ');
+      
+      if (!tags) {
+        alert('No tags to copy!');
+        return;
+      }
 
-            document.getElementById('copyBtn').style.display = 'block';
-        }
-
-        function copyTags() {
-            if (currentTags.length === 0) return;
-            const textToCopy = currentTags.map(t => t.startsWith('#') ? t : '#' + t).join(' ');
-            navigator.clipboard.writeText(textToCopy);
-            
-            const btn = document.getElementById('copyBtn');
-            btn.textContent = 'Nusxalandi! ✓';
-            setTimeout(() => {
-                btn.textContent = 'Nusxalash (Copy)';
-            }, 2000);
-        }
-    </script>
+      navigator.clipboard.writeText(tags).then(() => {
+        alert('Tags copied to clipboard!');
+      });
+    }
+  </script>
 </body>
 </html>
