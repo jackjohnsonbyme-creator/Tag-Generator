@@ -203,5 +203,92 @@
       });
     }
   </script>
+  <!-- Modal oyna tuzilmasi -->
+<div id="toolModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); z-index:1000; align-items:center; justify-content:center;">
+  <div style="background:#1e293b; padding:24px; border-radius:12px; width:90%; max-width:450px; position:relative; color:#fff;">
+    <span onclick="closeModal()" style="position:absolute; top:12px; right:16px; cursor:pointer; font-size:24px;">&times;</span>
+    <h3 id="modalTitle" style="margin-top:0; color:#38bdf8;">Tool</h3>
+    <div id="modalBody"></div>
+  </div>
+</div>
+
+<script>
+  function openTool(toolType) {
+    const modal = document.getElementById('toolModal');
+    const title = document.getElementById('modalTitle');
+    const body = document.getElementById('modalBody');
+    modal.style.display = 'flex';
+
+    if (toolType === 'password') {
+      title.innerText = 'Password Generator';
+      body.innerHTML = `
+        <p style="font-size:14px; color:#94a3b8;">Kuchli parol yaratish:</p>
+        <input type="text" id="passResult" readonly style="width:100%; padding:10px; background:#0f172a; border:1px solid #334155; color:#fff; border-radius:6px; margin-bottom:12px;">
+        <button onclick="generatePassword()" style="width:100%; padding:10px; background:#2563eb; color:#fff; border:none; border-radius:6px; cursor:pointer;">Yangi Parol Yaratish</button>
+      `;
+      generatePassword();
+    } else if (toolType === 'text') {
+      title.innerText = 'Text Counter';
+      body.innerHTML = `
+        <textarea id="textInput" oninput="countText()" placeholder="Matnni bering..." style="width:100%; height:100px; padding:10px; background:#0f172a; border:1px solid #334155; color:#fff; border-radius:6px; margin-bottom:12px; resize:none;"></textarea>
+        <div style="font-size:14px; color:#cbd5e1;">
+          Belgilar soni: <b id="charCount" style="color:#38bdf8;">0</b> | So'zlar soni: <b id="wordCount" style="color:#38bdf8;">0</b>
+        </div>
+      `;
+    } else if (toolType === 'qr') {
+      title.innerText = 'QR Code Maker';
+      body.innerHTML = `
+        <input type="text" id="qrInput" placeholder="URL yoki matn kiriting..." style="width:100%; padding:10px; background:#0f172a; border:1px solid #334155; color:#fff; border-radius:6px; margin-bottom:12px;">
+        <button onclick="makeQR()" style="width:100%; padding:10px; background:#2563eb; color:#fff; border:none; border-radius:6px; cursor:pointer; margin-bottom:12px;">QR Kod Yaratish</button>
+        <div id="qrResult" style="text-align:center;"></div>
+      `;
+    } else if (toolType === 'prompt') {
+      title.innerText = 'AI Prompt Helper';
+      body.innerHTML = `
+        <p style="font-size:14px; color:#94a3b8;">Nima haqida prompt kerak?</p>
+        <input type="text" id="promptTopic" placeholder="Masalan: YouTube video g'oyasi" style="width:100%; padding:10px; background:#0f172a; border:1px solid #334155; color:#fff; border-radius:6px; margin-bottom:12px;">
+        <button onclick="generatePrompt()" style="width:100%; padding:10px; background:#2563eb; color:#fff; border:none; border-radius:6px; cursor:pointer; margin-bottom:12px;">Prompt Yaratish</button>
+        <textarea id="promptResult" readonly style="width:100%; height:80px; padding:10px; background:#0f172a; border:1px solid #334155; color:#fff; border-radius:6px; resize:none;"></textarea>
+      `;
+    }
+  }
+
+  function closeModal() {
+    document.getElementById('toolModal').style.display = 'none';
+  }
+
+  function generatePassword() {
+    const chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()";
+    let pass = "";
+    for (let i = 0; i < 14; i++) {
+      pass += chars.charAt(Math.floor(Math.random() * chars.length));
+    }
+    document.getElementById('passResult').value = pass;
+  }
+
+  function countText() {
+    const txt = document.getElementById('textInput').value;
+    document.getElementById('charCount').innerText = txt.length;
+    document.getElementById('wordCount').innerText = txt.trim() === "" ? 0 : txt.trim().split(/\s+/).length;
+  }
+
+  function makeQR() {
+    const val = document.getElementById('qrInput').value;
+    const res = document.getElementById('qrResult');
+    if(val.trim() !== "") {
+      res.innerHTML = `<img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${encodeURIComponent(val)}" alt="QR Code" style="margin-top:10px; border-radius:8px;">`;
+    }
+  }
+
+  function generatePrompt() {
+    const topic = document.getElementById('promptTopic').value;
+    const res = document.getElementById('promptResult');
+    if(topic.trim() !== "") {
+      res.value = `Act as an expert content creator. Create a detailed, engaging, and highly viral outline about "${topic}". Include key hooks, main points, and a strong call-to-action.`;
+    } else {
+      res.value = "Iltimos, avval mavzuni kiriting!";
+    }
+  }
+</script>
 </body>
 </html>
